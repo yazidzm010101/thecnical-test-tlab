@@ -30,7 +30,7 @@ function App() {
       <div className="bg-gray-200">
       <Navbar />
       <div className="py-20 bg-gradient-to-r from-blue-900 to-teal-900 text-white px-4 relative">
-        <img src="/banner.png" className="absolute top-0 left-0 w-full h-full opacity-10"/>
+        <img src="/thecnical-test-tlab//banner.png" className="absolute top-0 left-0 w-full h-full opacity-10"/>
         <div className="relative pb-10 flex flex-col items-center justify-center container max-w-6xl mx-auto">
           <h1 className="text-2xl font-bold text-center my-2">
             Pilih Game Favorite Kalian
