@@ -37,12 +37,13 @@ function App() {
             Cupidatat ad pariatur velit excepteur.
           </h1>
         </div>
+        <hr className="my-3 border-blue-400 max-w-6xl mx-auto"/>
         <div className="flex flex-wrap container max-w-6xl mx-auto my-4">
           <h2 className="text-xl w-full lg:w-[50%]">
             Daftar Game
           </h2>
           <div className="w-full lg:w-[50%] flex justify-end">
-            <select className="rounded-sm px-3 py-2 text-gray-500 border-r-8 border-transparent" value={category} onChange={(e) => setCategory(e.target.value)}>
+            <select className="w-[12rem] max-w-full rounded-sm shadow-md px-3 py-2 text-gray-500 border-r-8 border-transparent" value={category} onChange={(e) => setCategory(e.target.value)}>
               <option value={""}>Semua Genre</option>
               {
                 availableCategories.map((category, i) => (

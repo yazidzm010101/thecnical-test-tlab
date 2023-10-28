@@ -1,0 +1,6 @@
+@screen xl {
+    .game-list {
+        width: calc(100% + 2.5rem);
+        @apply -mx-5;
+    }
+}
