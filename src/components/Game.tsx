@@ -14,7 +14,11 @@ export interface GameProps {
 
 function Game(props: GameProps) {
   return (
-    <div className={`w-full rounded-md shadow-sm bg-white ${props.className}`}>
+    <a
+      className={`block w-full rounded-md shadow-sm bg-white cursor-pointer hover:-translate-y-1 transition-all ${props.className}`}
+      href={props.game_url}
+      target="_blank"
+    >
       <div className="p-2 relative">
         <div className="rounded-full absolute bottom-5 left-5 bg-blue-200 text-blue-900 font-medium px-3 py-1">
           {props.genre}
@@ -29,14 +33,19 @@ function Game(props: GameProps) {
         <p className="text-sm">{props.short_description}</p>
         <hr className="my-4 border-gray-200" />
         <div className="flex flex-wrap pb-3 mt-auto">
-          <div className="mr-3">
+          <div className="w-full md:w-[50%] pr-3">
             <p className="text-xs text-gray-400">Platform</p>
             <p className="">{props.platform}</p>
           </div>
+          <div className="w-full md:w-[50%] pr-3">
+            <p className="text-xs text-gray-400">Release Date</p>
+            <p className="">{props.release_date}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
+
 
 export default Game;

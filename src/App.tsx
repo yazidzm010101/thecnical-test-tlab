@@ -1,5 +1,3 @@
-import "./App.css";
-
 import GameList from "./components/GameList";
 import Navbar from "./components/Navbar";
 import reactLogo from "./assets/react.svg";
@@ -28,8 +26,8 @@ function App() {
   return (
     <div className="bg-gray-200">
       <Navbar />
-      <div className="bg-blue-500 text-white py-8 px-4">
-        <div className="flex flex-wrap container max-w-6xl mx-auto">
+      <div className="pt-10 pb-[12rem] bg-blue-500 text-white py-8 px-4">
+        <div className="pb-10 flex flex-wrap container max-w-6xl mx-auto">
           <h1 className="text-2xl font-bold w-full lg:w-[50%]">
             Pilih Game Favorite Kalian
           </h1>
@@ -55,7 +53,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="w-full container max-w-6xl mx-auto">
+      <div className="w-full container max-w-6xl mx-auto mt-[-10rem]">
         <GameList category={category}/>
       </div>
     </div>
