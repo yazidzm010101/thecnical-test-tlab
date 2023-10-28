@@ -4,6 +4,7 @@ import Game, { GameProps } from "./Game";
 import { useEffect, useState } from "react";
 
 import { getGames } from "../libs/getGames";
+import { useSearchParams } from "react-router-dom";
 
 interface State {
   data: Array<GameProps>;
@@ -22,6 +23,8 @@ interface GameListProps {
 
 function GameList(props: GameListProps) {
   const [{ data, isLoading, isError }, setState] = useState(defaultState);
+  const [searchParams] = useSearchParams()
+  const isAltDesign = !!searchParams.get('alt-design')
 
   const fetchData = () => {
     setState(defaultState);
@@ -46,8 +49,11 @@ function GameList(props: GameListProps) {
         }
       })
       .catch((err) => {
-        console.log(err);
-        setState({ ...defaultState, isError: true, isLoading: false });
+        if (err?.response?.data?.status == 0) {
+          setState({ ...defaultState, data: [], isError: false, isLoading: false });  
+        } else {
+          setState({ ...defaultState, isError: true, isLoading: false });
+        }
       });
   };
 
@@ -56,7 +62,7 @@ function GameList(props: GameListProps) {
   if (isLoading) {
     const skeletons = Array.apply("", Array(10));
     return (
-      <div className="flex w-full flex-wrap">
+      <div className="flex w-full flex-wrap game-list">
         {skeletons?.map((_skeleton, i) => (
           <div key={i} className="w-full md:w-[50%] lg:w-[33.3%] p-5">
             <div className="full rounded-md shadow-sm bg-white cursor-pointer p-2">
@@ -73,7 +79,7 @@ function GameList(props: GameListProps) {
   if (isError) {
     return (
       <div className="w-full flex flex-col items-center justify-center">
-        <h3 className="text-white">
+        <h3 className={isAltDesign ? "text-gray-600" : "text-white"}>
           Maaf, terjadi kesalahan ketika memuat data silahkan coba kembali
         </h3>
         <button
@@ -89,8 +95,8 @@ function GameList(props: GameListProps) {
   if (data.length == 0) {
     return (
       <div className="w-full flex flex-col items-center justify-center">
-        <h3 className="text-white">
-          Tidak ada data dengan genre ${props.category}
+        <h3 className={isAltDesign ? "text-gray-600" : "text-white"}>
+          Tidak ada data dengan genre "{props.category}"
         </h3>
         <button
           className="bg-blue-600 text-white rounded-sm px-4 py-2 mt-4"

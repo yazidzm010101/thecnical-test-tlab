@@ -27,7 +27,7 @@ function App() {
   // FIRST DESIGN ON FIGMA: BY ADDING ?alt-design=true in query parameters
   if (!!searchParams.get('alt-design')) {
     return (
-      <div className="bg-gray-200">
+      <div className="bg-gray-200 min-h-screen">
       <Navbar />
       <div className="py-32 bg-gradient-to-r from-blue-900 to-teal-900 text-white px-4 relative">
         <img src="/thecnical-test-tlab//banner.png" className="absolute top-0 left-0 w-full h-full opacity-10 object-cover object-top"/>
