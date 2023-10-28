@@ -1,9 +1,9 @@
 import "./GameList.css";
 
 import Game, { GameProps } from "./Game";
+import { useEffect, useState } from "react";
 
 import { getGames } from "../libs/getGames";
-import { useEffect } from "react";
 
 interface State {
   data: Array<GameProps>;
@@ -57,7 +57,7 @@ function GameList(props: GameListProps) {
     const skeletons = Array.apply("", Array(10));
     return (
       <div className="flex w-full flex-wrap">
-        {skeletons?.map((skeleton, i) => (
+        {skeletons?.map((_skeleton, i) => (
           <div key={i} className="w-full md:w-[50%] lg:w-[33.3%] p-5">
             <div className="full rounded-md shadow-sm bg-white cursor-pointer p-2">
               <div className="w-full bg-gray-200 rounded-md h-5 mb-2" />
@@ -103,7 +103,7 @@ function GameList(props: GameListProps) {
 
   return (
     <div className="flex w-full flex-wrap game-list">
-      {data?.map((game) => (
+      {data?.map((game: GameProps) => (
         <div key={game.id} className="w-full md:w-[50%] lg:w-[33.3%] p-5">
           <Game
             id={game.id}
