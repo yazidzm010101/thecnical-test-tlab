@@ -21,7 +21,7 @@ interface GameListProps {
 function GameList(props: GameListProps) {
   const [{ data, isLoading, isError }, setState] = useState(defaultState);
 
-  useEffect(() => {
+  const fetchData = () => {
     setState(defaultState);
     getGames(props.category)
       .then((res) => {
@@ -32,14 +32,20 @@ function GameList(props: GameListProps) {
             isLoading: false,
             isError: false,
           });
-        } else {
+        }
+        else if (res.data?.status == 0) {
+          setState({ ...defaultState, data: [], isError: false, isLoading: false });
+        }
+        else {
           setState({ ...defaultState, isError: true, isLoading: false });
         }
       })
       .catch((err) =>
         setState({ ...defaultState, isError: true, isLoading: false })
       );
-  }, [props.category]);
+  }
+
+  useEffect(() => fetchData(), [props.category]);
 
   if (isLoading) {
     const skeletons = Array.apply("", Array(10));
@@ -58,7 +64,17 @@ function GameList(props: GameListProps) {
   }
 
   if (isError) {
-    return <div>Error</div>;
+    return <div className="w-full flex flex-col items-center justify-center">
+      <h3 className="text-white">Maaf, terjadi kesalahan ketika memuat data silahkan coba kembali</h3>
+      <button className="bg-blue-600 text-white rounded-sm px-4 py-2 mt-4" onClick={fetchData}>Muat ulang</button>
+    </div>;
+  }
+
+  if (data.length == 0) {
+    return <div className="w-full flex flex-col items-center justify-center">
+      <h3 className="text-white">Tidak ada data dengan genre ${props.category}</h3>
+      <button className="bg-blue-600 text-white rounded-sm px-4 py-2 mt-4" onClick={fetchData}>Muat ulang</button>
+    </div>;
   }
 
   return (
