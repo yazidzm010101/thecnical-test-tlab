@@ -7,7 +7,6 @@ import {
 } from "react-icons/ai";
 
 import { FaTwitter } from "react-icons/fa";
-import React from "react";
 
 function Navbar() {
   return (

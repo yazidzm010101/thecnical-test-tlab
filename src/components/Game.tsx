@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface GameProps {
   id: number;
   title: string;

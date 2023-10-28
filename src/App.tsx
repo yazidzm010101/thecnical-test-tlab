@@ -1,8 +1,6 @@
 import GameList from "./components/GameList";
 import Navbar from "./components/Navbar";
-import reactLogo from "./assets/react.svg";
 import { useState } from "react";
-import viteLogo from "/vite.svg";
 
 const availableCategories = [
   "MMORPG",
