@@ -28,14 +28,14 @@ function Game(props: GameProps) {
       </div>
       <div className="p-2 px-4 flex flex-col flex-grow">
         <h5 className="text-xl mb-2">{props.title}</h5>
-        <p className="text-sm mb-auto">{props.short_description}</p>
+        <p className="text-sm mb-auto text-gray-600">{props.short_description}</p>
         <hr className="my-4 border-gray-200" />
-        <div className="flex flex-wrap pb-3">
-          <div className="w-full md:w-[50%] pr-3">
+        <div className="flex flex-wrap">
+          <div className="sm:w-[50%] flex-shrink-0 mr-10 sm:mr-0 pb-3">
             <p className="text-xs text-gray-400">Platform</p>
             <p className="">{props.platform}</p>
           </div>
-          <div className="w-full md:w-[50%] pr-3">
+          <div className="sm:w-[50%] flex-shrink-0 mr-10 sm:mr-0 pb-3">
             <p className="text-xs text-gray-400">Release Date</p>
             <p className="">{props.release_date}</p>
           </div>
