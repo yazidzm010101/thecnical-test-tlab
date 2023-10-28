@@ -1,0 +1,7 @@
+.nav-link a {
+    @apply mx-1 flex items-center
+}
+
+.nav-link a svg {
+    @apply w-5 h-5
+}
