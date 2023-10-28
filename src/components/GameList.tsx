@@ -60,8 +60,9 @@ function GameList(props: GameListProps) {
         {skeletons?.map((_skeleton, i) => (
           <div key={i} className="w-full md:w-[50%] lg:w-[33.3%] p-5">
             <div className="full rounded-md shadow-sm bg-white cursor-pointer p-2">
+              <div className="w-full bg-gray-200 rounded-md aspect-[16/9] mb-2" />
+              <div className="w-full bg-gray-200 rounded-md h-8 mb-2" />
               <div className="w-full bg-gray-200 rounded-md h-5 mb-2" />
-              <div className="w-full bg-gray-200 rounded-md h-[15rem] mb-2" />
             </div>
           </div>
         ))}
